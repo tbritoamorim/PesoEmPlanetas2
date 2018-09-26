@@ -7,7 +7,7 @@ package pesoemplanetas;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +20,7 @@ public class JFramePesoEmPlanetas extends javax.swing.JFrame {
      */
     public JFramePesoEmPlanetas() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -57,16 +58,6 @@ public class JFramePesoEmPlanetas extends javax.swing.JFrame {
 
         buttonGroup1.add(mercurio);
         mercurio.setText("Mercúrio");
-        mercurio.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                mercurioItemStateChanged(evt);
-            }
-        });
-        mercurio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mercurioActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(venus);
         venus.setText("Vênus");
@@ -149,35 +140,29 @@ public class JFramePesoEmPlanetas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pesoActionPerformed
 
-    private void mercurioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mercurioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mercurioActionPerformed
-
     private void botaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoActionPerformed
         int pesoUsuario = Integer.parseInt(peso.getText());
+        double gravidadeRelativa;
         String chave = new String();
         Map<String, Double> planetas = new HashMap<>();
-        planetas.put("mercurio", 0.37);
-        planetas.put("venus", 0.88);
-        planetas.put("marte", 0.38);
-        planetas.put("jupiter", 2.04);
-        planetas.put("saturno", 1.15);
-        planetas.put("urano", 1.17);
+        planetas.put("Mercúrio", 0.37);
+        planetas.put("Vênus", 0.88);
+        planetas.put("Marte", 0.38);
+        planetas.put("Júpiter", 2.04);
+        planetas.put("Saturno", 1.15);
+        planetas.put("Urano", 1.17);
     
-        mercurio.setActionCommand("mercurio");
-        venus.setActionCommand("venus");
-        marte.setActionCommand("marte");
-        jupiter.setActionCommand("jupiter");
-        saturno.setActionCommand("saturno");
-        urano.setActionCommand("urano");
+        mercurio.setActionCommand("Mercúrio");
+        venus.setActionCommand("Vênus");
+        marte.setActionCommand("Marte");
+        jupiter.setActionCommand("Júpiter");
+        saturno.setActionCommand("Saturno");
+        urano.setActionCommand("Urano");
         
         chave = buttonGroup1.getSelection().getActionCommand();
-        System.out.println("ue" + chave);
+        gravidadeRelativa = planetas.get(chave);
+        JOptionPane.showMessageDialog(null, "Seu peso em " + chave + " será " + (pesoUsuario * gravidadeRelativa) + "kg.");
     }//GEN-LAST:event_botaoActionPerformed
-
-    private void mercurioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_mercurioItemStateChanged
-
-    }//GEN-LAST:event_mercurioItemStateChanged
 
     /**
      * @param args the command line arguments

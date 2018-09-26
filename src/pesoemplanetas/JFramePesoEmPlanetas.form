@@ -112,10 +112,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Merc&#xfa;rio"/>
       </Properties>
-      <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="mercurioItemStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mercurioActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="venus">
       <Properties>
